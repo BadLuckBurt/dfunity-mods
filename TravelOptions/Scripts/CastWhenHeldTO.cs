@@ -18,6 +18,9 @@ namespace TravelOptions
     {
         protected override void ApplyDurabilityLoss(DaggerfallUnityItem item, DaggerfallEntityBehaviour entity)
         {
+            if (item == null)
+                return;
+            
             if (!GameManager.Instance.EntityEffectBroker.SyntheticTimeIncrease && !TravelOptionsMod.Instance.GetTravelControlUI().isShowing)
             {
                 int degradeRate = GameManager.Instance.PlayerEntity.IsResting ? restingMagicItemDegradeRate : normalMagicItemDegradeRate;
